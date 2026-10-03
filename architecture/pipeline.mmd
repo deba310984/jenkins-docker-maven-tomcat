@@ -1,0 +1,19 @@
+%% Jenkins CI/CD pipeline: source -> running container
+flowchart LR
+    dev[Developer] -->|git push| scm[(Git repo)]
+    scm -->|webhook / poll| jenkins{{Jenkins}}
+
+    subgraph pipeline["Jenkins Pipeline (Jenkinsfile)"]
+        direction TB
+        s1[Checkout] --> s2[Build & Test<br/>mvn clean verify]
+        s2 --> s3[Package WAR<br/>archive artifact]
+        s3 --> s4[Docker Build<br/>multi-stage image]
+        s4 --> s5[Docker Push<br/>optional registry]
+        s5 --> s6[Deploy<br/>docker run]
+        s6 --> s7[Smoke Test<br/>curl health]
+    end
+
+    jenkins --> s1
+    s4 -. uses .-> maven[Maven build stage]
+    s6 --> tomcat[(Tomcat container<br/>serves WAR :8080)]
+    user([User]) -->|HTTP| tomcat

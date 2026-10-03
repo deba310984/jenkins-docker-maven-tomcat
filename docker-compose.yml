@@ -1,0 +1,8 @@
+# Local run: `docker compose up --build` then open http://localhost:8080
+services:
+  app:
+    build: .
+    image: java-tomcat-app:local
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
