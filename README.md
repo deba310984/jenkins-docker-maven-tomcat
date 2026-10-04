@@ -10,6 +10,14 @@
 [![Tomcat](https://img.shields.io/badge/Tomcat-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black)](https://tomcat.apache.org/)
 [![Java](https://img.shields.io/badge/Java-21-007396?style=flat-square&logo=openjdk&logoColor=white)](https://openjdk.org/)
 
+<br/>
+
+### 🎬 24-second explainer
+
+[![Watch the explainer video](media/poster.jpg)](media/explainer.mp4)
+
+*Click the image to play the video.*
+
 </div>
 
 ---
